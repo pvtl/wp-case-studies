@@ -17,7 +17,7 @@ The default front-end templates make use of [Foundation](https://foundation.zurb
 __If you're using [Bedrock](https://github.com/roots/bedrock):__
 
 ```bash
-git clone https://bitbucket.com/pvtl/wp-case-studies.git web/app/plugins/pvtl-case-studies
+git clone https://github.com/pvtl/wp-case-studies.git web/app/plugins/pvtl-case-studies
 rm -rf web/app/plugins/pvtl-case-studies/.git
 ```
 

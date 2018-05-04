@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     Case Studies by Pivotal
- * Plugin URI:      https://bitbucket.com/pvtl/wp-case-studies.git
+ * Plugin URI:      https://github.com/pvtl/wp-case-studies.git
  * Description:     Adds a case studies custom post type, taxonomy and fields
  * Author:          Pivotal Agency
  * Author URI:      http://pivotal.agency
