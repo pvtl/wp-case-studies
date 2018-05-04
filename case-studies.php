@@ -38,7 +38,7 @@ if (!function_exists('the_field')) {
 /**
  * Front-end templates
  */
-function case_study_templates($template)
+function case_studies_templates($template)
 {
     if (is_archive('case-study') && $template !== locate_template(array("archive-case-study.php"))) {
         return plugin_dir_path(__FILE__) .'resources/views/archive.php';
@@ -50,4 +50,50 @@ function case_study_templates($template)
     return $template;
 }
 
-add_filter('template_include', 'case_study_templates');
+add_filter('template_include', 'case_studies_templates');
+
+/**
+ * On Install - copy over the assets
+ */
+function case_studies_activate() {
+    $to_copy = array(
+        array(
+            'from' => 'js/',
+            'to' => 'js/plugins/',
+            'name' => 'case-studies.js',
+        ),
+        array(
+            'from' => 'scss/',
+            'to' => 'scss/plugins/',
+            'name' => '_case-studies.scss',
+        ),
+    );
+    $theme_asset_dir = get_template_directory() . '/src/assets/';
+    $plugin_asset_dir = plugin_dir_path(__FILE__) . 'resources/assets/';
+    // Only continue if the PVTL theme directory exists
+    if (file_exists($theme_asset_dir)) {
+        // For each file to copy across
+        foreach ($to_copy as $file) {
+            // Ignore if the file already exists
+            if (file_exists($theme_asset_dir . $file['to'] . $file['name'])) {
+                continue;
+            }
+
+            // Ensure the directory exists
+            mkdir($theme_asset_dir . $file['to'], 0755, true);
+
+            // Copy that file
+            if(
+                !@copy(
+                    $plugin_asset_dir . $file['from'] . $file['name'],
+                    $theme_asset_dir . $file['to'] . $file['name']
+                )
+            ) {
+                print_r(error_get_last());
+                die();
+            }
+        }
+    }
+}
+
+register_activation_hook(__FILE__, 'case_studies_activate');
