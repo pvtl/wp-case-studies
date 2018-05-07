@@ -31,7 +31,7 @@ __Alternatively:__
 
 ## How do I...?
 
-#### Modify the front-end layout?
+### Modify the front-end layout?
 
 By default, the plugin will use the templates found in `<plugin_dir>/resouces/views/*.php`.
 
@@ -42,7 +42,7 @@ You can easily override these templates, by creating the respective templates in
 | `single-case-study.php` | The single post template (overrides single.php) |
 | `archive-case-study.php` | The listing template (overrides archive.php) |
 
-#### Add extra fields?
+### Add extra fields?
 
 __Are the extra field/s specific for this project?__
 
