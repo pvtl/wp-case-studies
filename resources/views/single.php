@@ -27,7 +27,14 @@ get_header(); ?>
                     <div class="grid-x grid-margin-x">
                         <?php foreach ($images as $image) : ?>
                             <div class="cell small-4 text-center">
-                                <?php echo wp_get_attachment_image($image['ID'], $size, null, array('class' => 'thumbnail')); ?>
+                                <?php
+                                    echo wp_get_attachment_image(
+                                        $image['ID'],
+                                        $size,
+                                        null,
+                                        array('class' => 'thumbnail')
+                                    );
+                                ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
